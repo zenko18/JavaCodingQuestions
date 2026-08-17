@@ -1,0 +1,24 @@
+package org.example;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PrintOnlyRepeatedWords {
+
+    static void main(String[] args) {
+        //------------------------------------------------- Print only repeated words in single word
+        Scanner sc = new Scanner(System.in);
+        String line = sc.next();
+        HashMap<Character, Integer> hash = new HashMap<>();
+        for (char ch : line.toCharArray()) {
+            if (hash.containsKey(ch)) {
+                hash.put(ch, hash.get(ch) + 1);
+            } else hash.put(ch, 1);
+        }
+        for (char ch : hash.keySet()) {
+            if (hash.get(ch) > 1) {
+                System.out.println(ch + " - " + hash.get(ch));
+            }
+        }
+    }
+}
